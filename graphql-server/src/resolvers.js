@@ -2,17 +2,17 @@ import db from "./db.js";
 
 const resolvers = {
   Query: {
-    games() {
-      return db.games;
+    movies() {
+      return db.movies;
     },
-    game(_, args) {
-      return db.games.find((game) => game.id === args.id)
+    movie(_, args) {
+      return db.movies.find((movie) => movie.id === args.id)
     },
-    authors() {
-      return db.authors;
+    directors() {
+      return db.directors;
     },
-    author(_, args) {
-      return db.authors.find((author) => author.id === args.id)
+    director(_, args) {
+      return db.directors.find((director) =>director.id === args.id)
     },
     reviews() {
       return db.reviews;
@@ -21,46 +21,46 @@ const resolvers = {
       return db.reviews.find((review) => review.id === args.id)
     }
   },
-  Game: {
+  Movie: {
     reviews(parent) {
-      return db.reviews.filter((r) => r.game_id === parent.id)
+      return db.reviews.filter((r) => r.movie_id === parent.id)
     }
   },
-  Author: {
+  Director: {
     reviews(parent) {
-      return db.reviews.filter((r) => r.author_id === parent.id)
+      return db.reviews.filter((r) => r.director_id === parent.id)
     }
   },
   Review: {
-    author(parent) {
-      return db.authors.find((a) => a.id === parent.author_id)
+    director(parent) {
+      return db.directors.find((d) => d.id === parent.director_id)
     },
-    game(parent) {
-      return db.games.find((g) => g.id === parent.author_id)
+    movie(parent) {
+      return db.movie.find((m) => m.id === parent.director_id)
     }
   },
   Mutation: {
-    deleteGame(_, args) {
-      db.games = db.games.filter((g) => g.id !== args.id)
-      return db.games
+    deleteMovie(_, args) {
+      db.movies = db.movies.filter((m) => m.id !== args.id)
+      return db.movies
     },
-    addGame(_, args) {
-      let game = {
-        ...args.game,
+    addMovie(_, args) {
+      let movie = {
+        ...args.movie,
         id: Math.floor(Math.random() * 100000).toString()
       }
-      db.games.push(game)
-      return game
+      db.movies.push(movie)
+      return movie
     },
-    updateGame(_, args) {
-      db.games = db.games.map((g) => {
-        if (g.id === args.id) {
-          return {...g, ...args.edits}
+    updateMovie(_, args) {
+      db.movies = db.movies.map((m) => {
+        if (m.id === args.id) {
+          return {...m, ...args.edits}
         }
 
-        return g
+        return m
       })
-      return db.games.find((g) => g.id === args.id)
+      return db.movies.find((m) => m.id === args.id)
     }
   }
 };

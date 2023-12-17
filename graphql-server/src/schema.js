@@ -1,18 +1,19 @@
 export const typeDefs = `#graphql
-type Game {
+type Movie {
     id: ID! 
     title: String!
-    platform: [String!]!
+    actors: [String]!
+    year: String!
     reviews: [Review!]
 }
 type Review {
     id: ID! 
     rating: Int!
     content: String!
-    game: Game!
-    author: Author! 
+    movie: Movie!
+    director: Director! 
 }
-type Author {
+type Director {
     id: ID! 
     name: String!
     verify: Boolean!
@@ -21,22 +22,24 @@ type Author {
 type Query {
     reviews: [Review]
     review(id: ID!): Review
-    games: [Game]
-    game(id: ID!): Game
-    authors: [Author]
-    author(id: ID!): Author
+    movies: [Movie]
+    movie(id: ID!): Movie
+    directors: [Director]
+    director(id: ID!): Director
 }
 type Mutation {
-    addGame(game: AddGameInput!): Game
-    deleteGame(id: ID!): [Game]
-    updateGame(id: ID!, edits: EditGameInput!): Game
+    addMovie(movie: AddMovieInput!): Movie
+    deleteMovie(id: ID!): [Movie]
+    updateMovie(id: ID!, edits: EditMovieInput!): Movie
 }
-input AddGameInput {
+input AddMovieInput {
     title: String!,
-    platform: [String!]!
+    actors: [String!]!,
+    year: Int!
 }
-input EditGameInput {
+input EditMovieInput {
     title: String,
-    platform: [String!]
+    actors: [String]!,
+    year: Int!
 }
 `

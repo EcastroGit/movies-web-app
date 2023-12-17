@@ -1,6 +1,6 @@
-# Video games Reviews App
+# Movies Web App
 
-Full Stack app consisting of a frontend interface with reviews for video games titles including relevant information for different platforms.
+Full Stack app consisting of a frontend interface with reviews for movies including relevant information such as: director, actors, year and reviews.
 
 CURRENTLY WORKING ON
 
@@ -12,4 +12,7 @@ CURRENTLY WORKING ON
 
 ## Screenshots
 
-CURRENTLY WORKING ON FIGMA DESIGN
+Figma design preview
+
+![Figma design](./app-dark-mode.png)
+![Figma design](./app-light-mode.png)

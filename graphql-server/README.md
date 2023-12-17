@@ -1,4 +1,4 @@
-# Videogames Review App - GraphQl Server
+# Movies Web App - GraphQl Server
 
 Backend for the app built with Node.js, GrapghQL & Apollo-server, Mongo DB.
 
