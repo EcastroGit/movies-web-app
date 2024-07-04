@@ -42,4 +42,4 @@ input EditMovieInput {
     actors: [String]!,
     year: Int!
 }
-`
+`;

@@ -15,7 +15,7 @@ const server = new ApolloServer({
 const { url } = await startStandaloneServer(server, {
   listen: {
     port: 4000,
-    path: "api/videogames-reviews",
+    path: "api/movies-reviews",
   },
 });
 
